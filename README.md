@@ -100,3 +100,24 @@ To convert this to dynamic programming one can use `xmem`.
 
 ```
 
+If you write a function with sufficient granularity, you will only need to
+override the necessary portions of the function. For example, the following
+fibonacci implementation can be easily converted into a factorial computation
+later.
+
+``` python
+from functools import partial
+@kwplus
+def fibonacci(n=1, 
+              isterminal=xlazy(lambda s: s.n <= 1),
+              onterminal=1,
+              recurse=lambda n: fibonacci(n=n-1) + fibonacci(n=n-2),
+              ret=xmem(lambda n, onterminal, isterminal, recurse: 
+              onterminal if isterminal else recurse(n), "n onterminal isterminal recurse".split())):
+    return ret
+
+factorial = partial(fibonacci,
+    recurse=lambda n: n*factorial(n-1))
+""" Computers the factorial of a postive integer"""
+```
+
