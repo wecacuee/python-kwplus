@@ -1,5 +1,5 @@
 from functools import wraps, partial, update_wrapper
-from collections import Callable
+from collections import Callable, OrderedDict
 from kwrepr import kwrepr, default_kw, need_args
 
 
@@ -158,7 +158,7 @@ def recpartial(func, keywords, sep="."):
     # first to minimize calls to the recpartial.
     assert iscallable(func)
     head_keywords = dict()
-    tail_keywords = dict()
+    tail_keywords = OrderedDict()  # respect keywords order
     for reckey, val in keywords.items():
         reckeys = reckey.split(sep)
         if len(reckeys) > 1:
@@ -168,6 +168,6 @@ def recpartial(func, keywords, sep="."):
             head_keywords[reckeys[0]] = val
 
     for headkey, t_keywords in tail_keywords.items():
-        tail_func = default_kw(func)[headkey]
+        tail_func = head_keywords.get(headkey, default_kw(func)[headkey])
         head_keywords[headkey] = recpartial(tail_func, t_keywords, sep=sep)
     return clone_partial(func, **head_keywords)
