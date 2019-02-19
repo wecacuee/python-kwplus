@@ -39,3 +39,29 @@ def argcompose(fs):
     or r = (f · g · h)
     """
     return partial(reduce, lambda acc, f: f(*acc), list(reversed(fs)))
+
+
+def headtail(xs):
+    itxs = iter(xs)
+    return next(itxs), itxs
+
+
+def tail(xs):
+    return headtail(xs)[1]
+
+
+def head(xs):
+    return headtail(xs)[0]
+
+
+first = head
+
+second = compose((head, tail))
+
+
+def group_by(rows, key_fn, value_fn, init_fn=list, group_init_fn=dict):
+    grouped = group_init_fn()
+    for row in rows:
+        grouped.setdefault(key_fn(row), init_fn()).append(value_fn(row))
+
+    return grouped
