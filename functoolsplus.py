@@ -14,7 +14,7 @@ def compose(fs):
 
     or r = (f · g · h)
     """
-    return partial(reduce, lambda acc, f: f(acc), reversed(fs))
+    return partial(reduce, lambda acc, f: f(acc), list(reversed(fs)))
 
 
 def kwcompose(fs):
@@ -26,7 +26,7 @@ def kwcompose(fs):
 
     or r = (f · g · h)
     """
-    return partial(reduce, lambda acc, f: f(**acc), reversed(fs))
+    return partial(reduce, lambda acc, f: f(**acc), list(reversed(fs)))
 
 
 def argcompose(fs):
@@ -38,4 +38,4 @@ def argcompose(fs):
 
     or r = (f · g · h)
     """
-    return partial(reduce, lambda acc, f: f(*acc), reversed(fs))
+    return partial(reduce, lambda acc, f: f(*acc), list(reversed(fs)))
