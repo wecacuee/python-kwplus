@@ -59,9 +59,9 @@ first = head
 second = compose((head, tail))
 
 
-def group_by(rows, key_fn, value_fn, init_fn=list, group_init_fn=dict):
+def group_by(rows, key_fn, init_fn=list, group_init_fn=dict):
     grouped = group_init_fn()
     for row in rows:
-        grouped.setdefault(key_fn(row), init_fn()).append(value_fn(row))
+        grouped.setdefault(key_fn(row), init_fn()).append(row)
 
-    return grouped
+    return grouped.items()
