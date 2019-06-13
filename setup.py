@@ -6,7 +6,7 @@ setup(name='kwplus',
       author='Vikas Dhiman',
       url='https://github.com/wecacuee/kwplus',
       author_email='dhiman@umich.edu',
-      version='0.3.1',
+      version='0.3.2',
       license='MIT',
       classifiers=(
           'Development Status :: 3 - Alpha',

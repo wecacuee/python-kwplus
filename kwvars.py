@@ -1,3 +1,6 @@
+from itertools import product
+
+
 class kwvars(list):
     pass
 
