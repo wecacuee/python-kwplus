@@ -13,9 +13,10 @@ def separate_variations(kw):
 
 
 def config_vars_to_configs(**config_vars):
+    if not config_vars:
+        return [{}]
     config_keys, config_vals = zip(*config_vars.items())
-    return {"-".join(map(str, vlist)): dict(zip(config_keys, vlist))
-            for vlist in product(*config_vals)}
+    return [dict(zip(config_keys, vlist)) for vlist in product(*config_vals)]
 
 
 def expand_variations(**kwargs):
