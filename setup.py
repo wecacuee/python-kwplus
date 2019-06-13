@@ -6,7 +6,7 @@ setup(name='kwplus',
       author='Vikas Dhiman',
       url='https://github.com/wecacuee/kwplus',
       author_email='dhiman@umich.edu',
-      version='0.3.0',
+      version='0.3.1',
       license='MIT',
       classifiers=(
           'Development Status :: 3 - Alpha',
@@ -15,4 +15,4 @@ setup(name='kwplus',
           "Operating System :: OS Independent",
       ),
       python_requires='>=3.5',
-      py_modules=['kwplus', 'kwrepr', 'functoolsplus'])
+      py_modules=['kwplus', 'kwrepr', 'functoolsplus', 'kwvars'])
