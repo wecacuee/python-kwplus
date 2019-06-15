@@ -124,3 +124,8 @@ def kwplus(func, evaldictclass=EvalAttr):
 
     return wrapper
 
+
+def clone_partial(func, **kw):
+    return (func.copy(**kw)
+            if isinstance(func, xargs)
+            else partial(func, **kw))

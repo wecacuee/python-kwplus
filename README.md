@@ -148,7 +148,7 @@ We can be ambitious and serialize python programs as a single dictionary:
 
 ``` python-console
 >>> from kwplus import kwplus, xlazy, xargs, recpartial
->>> from kwrepr import flattened_kwrepr
+>>> from kwplus.repr import flattened_kwrepr
 >>> from pprint import pprint
 >>> from functools import partial
 >>> def sum_three(a=0, b=0, d=0, offset=5): return a+b+d+offset
