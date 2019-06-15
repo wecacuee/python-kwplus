@@ -1,7 +1,7 @@
 from itertools import product
 
 
-class kwvars(list):
+class kwvariations(list):
     pass
 
 
@@ -23,3 +23,4 @@ def expand_variations(**kwargs):
     variations, common_kwargs = separate_variations(kwargs)
     expanded = config_vars_to_configs(**variations)
     return [dict(kw, **common_kwargs) for kw in expanded]
+

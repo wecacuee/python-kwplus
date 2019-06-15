@@ -15,4 +15,4 @@ setup(name='kwplus',
           "Operating System :: OS Independent",
       ),
       python_requires='>=3.5',
-      py_modules=['kwplus', 'kwrepr', 'functoolsplus', 'kwvars'])
+      py_modules=['kwplus', 'kwrepr', 'kwvarations'])
