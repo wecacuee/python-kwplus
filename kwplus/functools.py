@@ -1,6 +1,7 @@
 from functools import partial, reduce
 from typing import Callable
 from collections import OrderedDict
+from kwplus import default_kw
 
 
 def iscallable(x):

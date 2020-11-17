@@ -1,6 +1,6 @@
 from functools import wraps, partial, update_wrapper
 from collections import Callable, OrderedDict
-from kwrepr import kwrepr, default_kw, need_args
+from .repr import kwrepr, default_kw, need_args
 
 
 def iscallable(x):
